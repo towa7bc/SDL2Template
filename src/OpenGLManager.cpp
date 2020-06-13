@@ -5,9 +5,13 @@
 #include "OpenGLManager.hpp"
 
 #include <GL/glew.h>  // Initialize with glewInit()
+#include <SDL.h>
 
 #include <algorithm>
+#include <cmath>
 #include <vector>
+
+#include "ImGUIHelper.hpp"
 
 namespace app {
 
@@ -124,6 +128,9 @@ void OpenGLManager::init() {
 void OpenGLManager::render() const {
   // draw our first triangle
   glUseProgram(shaderProgram_);
+  int vertexColorLocation = glGetUniformLocation(shaderProgram_, "ourColor");
+  glUniform4f(vertexColorLocation, 0.0f, ImGUIHelper::triangleColor_, 0.0f,
+              1.0f);
   glBindVertexArray(
       VAO_);  // seeing as we only have a single VAO there's no need to bind it
   // every time, but we'll do so to keep things a bit more organized

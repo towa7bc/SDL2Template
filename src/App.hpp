@@ -12,6 +12,7 @@
 #include <string>
 #include <vector>
 
+#include "ImGUIHelper.hpp"
 #include "OpenGLManager.hpp"
 #include "detail/Core.hpp"  // for create_ref
 #include "imgui.h"
