@@ -71,6 +71,7 @@ GLuint ImageLoader::CreateOpenGLTextureFromSDL_Surface(SDL_Surface* surface,
     glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
     glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
   }
+  SDL_FreeSurface(surface);
   return texture;
 }
 
