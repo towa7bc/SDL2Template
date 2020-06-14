@@ -111,7 +111,7 @@ bool App::Setup() {
   SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
   SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
   SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
-  SDL_WindowFlags window_flags = (SDL_WindowFlags)(
+  auto window_flags = (SDL_WindowFlags)(
       SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
   if ((window_ = SDL_CreateWindow("Particle Example", SDL_WINDOWPOS_CENTERED,
                                   SDL_WINDOWPOS_CENTERED, windowDefaultWidth_,
@@ -124,18 +124,14 @@ bool App::Setup() {
   glContext_ = SDL_GL_CreateContext(window_);
   SDL_GL_MakeCurrent(window_, glContext_);
   SDL_GL_SetSwapInterval(1);
-  // Initialize OpenGL loader
-  bool err = glewInit() != GLEW_OK;
-  if (err) {
-    return false;
-  }
+  App::RunOpenGLLoader();
   clear_color_ = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
   ImGUIHelper::Setup(window_, &glContext_, clear_color_);
   openGlManager_.init();
   return true;
 }
 
-App::App() : running_(true), window_(nullptr), glContext_() {}
+App::App() : running_(true), window_(nullptr), glContext_(), openGlManager_() {}
 
 void App::UpdateFPS() {}
 
@@ -149,5 +145,10 @@ void App::Cleanup() {
 }
 
 void App::Update() {}
+
+bool App::RunOpenGLLoader() {
+  bool err = glewInit() != GLEW_OK;
+  return !err;
+}
 
 }  // namespace app

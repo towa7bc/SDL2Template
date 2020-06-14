@@ -7,6 +7,7 @@
 #include <GL/glew.h>  // Initialize with glewInit()
 
 #include "ImGUIHelper.hpp"
+#include "stb_image.hpp"
 
 namespace app {
 

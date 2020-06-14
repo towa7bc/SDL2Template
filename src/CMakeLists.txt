@@ -17,7 +17,7 @@ add_executable(
         imgui_impl_sdl.h
         OpenGLManager.cpp
         OpenGLManager.hpp
-        ImGUIHelper.cpp ImGUIHelper.hpp Shader.cpp Shader.hpp)
+        ImGUIHelper.cpp ImGUIHelper.hpp Shader.cpp Shader.hpp stb_image.cpp stb_image.hpp ImageLoader.cpp ImageLoader.hpp)
 
 find_package(SDL2 REQUIRED)
 find_package(SDL2_image REQUIRED)

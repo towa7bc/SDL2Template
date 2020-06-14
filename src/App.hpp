@@ -31,6 +31,7 @@ class App {
   void HandleSDL2Events(const SDL_Event &);
   void UpdateFPS();
   void Cleanup();
+  static bool RunOpenGLLoader();
   bool running_;
   SDL_Window *window_;
   static constexpr int windowDefaultWidth_ = 1024;
