@@ -74,8 +74,9 @@ fabric.properties
 /.idea/misc.xml
 /.idea/modules.xml
 /.idea/other.xml
-/.idea/SFMLTest.iml
+/.idea/SDL2Test.iml
 /.idea/vcs.xml
 /src/stlab/
 /.idea/statistic.xml
 /.idea/compilerexplorer.settings.xml
+/.idea/codeStyles/codeStyleConfig.xml

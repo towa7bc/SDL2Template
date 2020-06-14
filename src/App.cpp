@@ -127,7 +127,7 @@ bool App::Setup() {
   // Initialize OpenGL loader
   bool err = glewInit() != GLEW_OK;
   if (err) {
-    return 1;
+    return false;
   }
   clear_color_ = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
   ImGUIHelper::Setup(window_, &glContext_, clear_color_);
